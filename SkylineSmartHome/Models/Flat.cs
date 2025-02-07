@@ -1,4 +1,5 @@
 ﻿using SkylineSmartHome.Interfaces;
+using SkylineSmartHome.Models.Devices;
 using SkylineSmartHome.Models.Enums;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,21 @@ namespace SkylineSmartHome.Models
             { Rooms.DjecijaSoba, new List<IDevice>() },
             { Rooms.Kupatilo, new List<IDevice>() }
         };
+        }
+
+        public void DodajUredjaj(Rooms soba, IDevice device)
+        {
+            if ((soba == Rooms.Kuhinja && (device is MasinaZaSudje || device is Frizider)) ||
+                (soba == Rooms.Kupatilo && (device is Bojler || device is VesMasina)) ||
+                (soba != Rooms.Kuhinja && soba != Rooms.Kupatilo && !(device is MasinaZaSudje || device is Frizider || device is Bojler || device is VesMasina)))
+            {
+                sobe[soba].Add(device);
+                Console.WriteLine($"Uređaj {device.GetName()} dodat u {soba}.");
+            }
+            else
+            {
+                Console.WriteLine($"Uređaj {device.GetName()} se ne može dodati u {soba}.");
+            }
         }
 
         public void PrikaziUredjaje()
