@@ -9,22 +9,14 @@ namespace SkylineSmartHome.Models
 {
     public abstract class Device : IDevice
     {
-        private int _id;
         private string _name;
         private bool _status;
 
-        public int GetId() => _id;
-        public void SetId(int id) => _id = id;
-
         public string GetName() => _name;
-        public void SetName(string name) => _name = name;
-
         public bool GetStatus() => _status;
-        public void SetStatus(bool status) => _status = status;
 
-        public Device(int id, string name)
+        public Device(string name)
         {
-            _id = id;
             _name = name;
             _status = false;
         }
