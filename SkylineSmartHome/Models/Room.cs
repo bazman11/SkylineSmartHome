@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SkylineSmartHome.Models
 {
-    public class Room
+    public class Room : IRoom
     {
         private string _naziv;
         private double _temperatura;
@@ -61,7 +61,7 @@ namespace SkylineSmartHome.Models
                 Console.WriteLine($"  - {sijalica.GetName()} ({sijalica.GetStatusString()})");
             }
 
-            Console.WriteLine("Uređaji:");
+            Console.WriteLine("Uredjaji:");
             foreach (var uredjaj in _uredjaji)
             {
                 Console.WriteLine($"  - {uredjaj.GetName()} ({uredjaj.GetStatusString()})");

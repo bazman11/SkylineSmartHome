@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SkylineSmartHome.Models
 {
-    public class Flat
+    public class Flat : IFlat
     {
         private Dictionary<Rooms, List<IDevice>> sobe;
 
@@ -33,11 +33,11 @@ namespace SkylineSmartHome.Models
                 (soba != Rooms.Kuhinja && soba != Rooms.Kupatilo && !(device is MasinaZaSudje || device is Frizider || device is Bojler || device is VesMasina)))
             {
                 sobe[soba].Add(device);
-                Console.WriteLine($"Uređaj {device.GetName()} dodat u {soba}.");
+                Console.WriteLine($"Uredjaj {device.GetName()} dodat u {soba}.");
             }
             else
             {
-                Console.WriteLine($"Uređaj {device.GetName()} se ne može dodati u {soba}.");
+                Console.WriteLine($"Uredjaj {device.GetName()} se ne moze dodati u {soba}.");
             }
         }
 
