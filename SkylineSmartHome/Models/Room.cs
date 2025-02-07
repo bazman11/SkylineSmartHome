@@ -36,13 +36,18 @@ namespace SkylineSmartHome.Models
         public void DodajSijalicu(Sijalica sijalica)
         {
             _sijalice.Add(sijalica);
-            Console.WriteLine($"Sijalica {sijalica.GetName()} dodana u sobu {_naziv}.");
+            //Console.WriteLine($"Sijalica {sijalica.GetName()} dodana u sobu {_naziv}.");
         }
 
         public void DodajUredjaj(IDevice uredjaj)
         {
             _uredjaji.Add(uredjaj);
-            Console.WriteLine($"Uređaj {uredjaj.GetName()} dodan u sobu {_naziv}.");
+            //Console.WriteLine($"Uređaj {uredjaj.GetName()} dodan u sobu {_naziv}.");
+        }
+
+        public List<IDevice> GetDevices()
+        {
+            return _uredjaji;
         }
 
         public void PrikaziStanje()
@@ -62,7 +67,5 @@ namespace SkylineSmartHome.Models
                 Console.WriteLine($"  - {uredjaj.GetName()} ({uredjaj.GetStatusString()})");
             }
         }
-
     }
-
 }
