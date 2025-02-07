@@ -1,5 +1,6 @@
 ﻿using SkylineSmartHome.Interfaces;
 using SkylineSmartHome.Models.Devices;
+using SkylineSmartHome.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace SkylineSmartHome.Models
         private List<Sijalica> _sijalice;
         private List<IDevice> _uredjaji;
 
-        public Room(Room naziv, double temperatura = 22.0)
+        public Room(Rooms naziv, double temperatura = 22.0)
         {
-            _naziv = naziv.ToString();
+            _naziv = naziv.ToString(); // iz enuma u string!
             _temperatura = temperatura;
             _sijalice = new List<Sijalica>();
             _uredjaji = new List<IDevice>();
